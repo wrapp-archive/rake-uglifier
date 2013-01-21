@@ -4,12 +4,23 @@ require 'uglifier'
 
 module Rake
   class UglifierTask < Rake::TaskLib
+    # A Hash containing the options to give to uglifier
     attr_accessor :uglifier_options
+
+    # The name of the task, defaults to :minify
     attr_accessor :name
+
+    # The logger to use
     attr_accessor :logger
+
+    # A list of regexps that should match any assets to compile
+    # Defaults to all file ending in .js
     attr_accessor :assets
+
+    # A booleaning indicating whether or not to create source maps
     attr_accessor :create_source_map
 
+    # The path to the root directory where the assets are located.
     attr_reader :assets_path
     def assets_path=(path)
       @assets_path = File.join(path, '')
