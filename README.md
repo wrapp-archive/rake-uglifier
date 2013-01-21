@@ -8,6 +8,12 @@ Installation
 $ gem install sprockets-helpers
 ```
 
+Requirements
+---
+This gem requires the as of now unreleased version of uglifier (2.0).
+
+Install it via their git repo: https://github.com/lautis/uglifier
+
 Setup
 ---
 Here is how you set it up:
