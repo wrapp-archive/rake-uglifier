@@ -5,12 +5,12 @@ A simple rake task for minifying assets and include optional source maps.
 Installation
 ---
 ```
-$ gem install sprockets-helpers
+$ gem install rake-uglifier
 ```
 
 Requirements
 ---
-This gem requires the as of now unreleased version of uglifier (2.0).
+This gem requires the as of now unreleased version of uglifier (2.0+).
 
 Install it via their git repo: https://github.com/lautis/uglifier
 
@@ -18,15 +18,14 @@ Setup
 ---
 Here is how you set it up:
 ```ruby
-require 'rake/sprocket_uglifier'
+require 'rake/uglifier_task'
 
 Rake::UglifierTask.new(:minify) do |t|
-  root = File.dirname(__FILE__)
-  t.assets_path      = File.join(root, 'public', 'assets')
+  t.assets_path      = File.join(File.dirname(__FILE__), 'public', 'assets')
   t.logger           = Logger.new($stdout)
   t.uglifier_options = {
     mangle: {
-      except: %w($ zxcvbn jQuery)
+      except: %w($ jQuery someOtherGlobalVariable)
     }
   }
 end
