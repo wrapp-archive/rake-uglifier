@@ -8,12 +8,6 @@ Installation
 $ gem install rake-uglifier
 ```
 
-Requirements
----
-This gem requires uglifier 2.0 or later.
-
-Install it via their git repo: https://github.com/lautis/uglifier
-
 Setup
 ---
 Here is how you set it up:
