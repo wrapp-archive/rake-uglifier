@@ -10,7 +10,7 @@ $ gem install rake-uglifier
 
 Requirements
 ---
-This gem requires the as of now unreleased version of uglifier (2.0+).
+This gem requires uglifier 2.0 or later.
 
 Install it via their git repo: https://github.com/lautis/uglifier
 
@@ -20,6 +20,7 @@ Here is how you set it up:
 ```ruby
 require 'rake/uglifier_task'
 
+# :minify is the name of the task
 Rake::UglifierTask.new(:minify) do |t|
   t.assets_path      = File.join(File.dirname(__FILE__), 'public', 'assets')
   t.logger           = Logger.new($stdout)
@@ -56,9 +57,17 @@ These are the different options:
 
 Example Rakefile
 ---
-The Rakefile in the repo is an example of a rakefile that can compile and minify
+The [Rakefile](https://github.com/wrapp/rake-uglifier/blob/master/Rakefile) in the repo is an example of a rakefile that can compile and minify
 assets.
 
 License
 ---
-This project is licensed under the MIT license, see LICENSE.txt for more info.
+This project is licensed under the MIT license, see [LICENSE.txt](https://github.com/wrapp/rake-uglifier/blob/master/LICENSE.txt) for more info.
+
+Changelog
+---
+ * 0.0.2
+   * Minor readme tweaks
+   * Require uglifier 2.0
+ * 0.0.1
+   * Initial release
