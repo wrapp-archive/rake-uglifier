@@ -42,6 +42,10 @@ These are the different options:
 # Defaults to all file ending in .js
 :assets
 
+# A list of regexps to ignore
+# Default to all minified files
+:assets
+
 # A booleaning indicating whether or not to create source maps
 :create_source_map
 

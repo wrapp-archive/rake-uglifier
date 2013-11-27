@@ -20,6 +20,9 @@ module Rake
     # A booleaning indicating whether or not to create source maps
     attr_accessor :create_source_map
 
+    # A list of regexpses that should be ignored
+    attr_accessor :ignore
+
     # The path to the root directory where the assets are located.
     attr_reader :assets_path
     def assets_path=(path)
@@ -32,6 +35,7 @@ module Rake
       @logger.level      = Logger::INFO
       @uglifier_options  = {}
       @assets            = [/.*\.js/ ]
+      @ignore            = [/.*\.min\.js/]
       @create_source_map = true
 
       yield self if block_given?
@@ -105,9 +109,13 @@ module Rake
       path = assets_path if path == nil
       Dir[File.join(path, '**/*.js')]
         .reject {|f| File.directory?(f) }
+        .reject {|f| ignore.any? {|i| i =~ f } }
         .each do |f|
           assets.each do |asset|
-            block.call(f) if asset =~ f
+            if asset =~ f
+              block.call(f)
+              break
+            end
           end
         end
     end
