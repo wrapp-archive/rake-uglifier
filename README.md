@@ -64,6 +64,8 @@ This project is licensed under the MIT license, see [LICENSE.txt](https://github
 
 Changelog
 ---
+ * 0.0.3
+   * Add a way to ignore files
  * 0.0.2
    * Minor readme tweaks
    * Require uglifier 2.0

@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name         = 'rake-uglifier'
-  s.version      = '0.0.2'
-  s.date         = '2013-11-06'
+  s.version      = '0.0.3'
+  s.date         = '2013-11-26'
   s.summary      = "Rake uglifier"
   s.description  = "A rake task for compressing assets with uglifier. It can also create source maps."
   s.authors      = ["Nicklas Ansman"]
